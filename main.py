@@ -3,11 +3,7 @@ import numpy as np
 import cv2
 import time
 import math
-<<<<<<< HEAD
- 
-=======
 
->>>>>>> 38a98c2f380ee72642bd20e6cd4e59a7dff72acd
 model = tensorflow.keras.models.load_model('keras_model.h5')
 
 cap = cv2.VideoCapture(0)
@@ -103,4 +99,4 @@ while cap.isOpened():
         sum = s_time + p_time + o_time
         print(sum)
         break
-    #
+    # 여기에 변경된 코딩 정보 작성 ex) 1초 딜레이로 설정해둠
