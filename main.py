@@ -3,7 +3,11 @@ import numpy as np
 import cv2
 import time
 import math
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> 38a98c2f380ee72642bd20e6cd4e59a7dff72acd
 model = tensorflow.keras.models.load_model('keras_model.h5')
 
 cap = cv2.VideoCapture(0)
@@ -65,10 +69,11 @@ while cap.isOpened():
         s_time = s_time + 1
     elif (idx == 1):
         time.sleep(1)
-        p_time = p_time + 1
+        o_time = o_time + 1  
     elif (idx == 2):
         time.sleep(1)
-        o_time = o_time + 1   
+        p_time = p_time + 1
+     
     
     if ((s_time % 60) == 0):
         s_time_m = s_time_m + 1
@@ -98,3 +103,4 @@ while cap.isOpened():
         sum = s_time + p_time + o_time
         print(sum)
         break
+    #
