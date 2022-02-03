@@ -3,7 +3,7 @@ import numpy as np
 import cv2
 import time
 import math
-import timer
+ 
 model = tensorflow.keras.models.load_model('keras_model.h5')
 
 cap = cv2.VideoCapture(0)
@@ -27,7 +27,7 @@ global o_time_m
 o_time_m = 0
 
 global r_time
-r_time = int(input("시간을 입력해 주세요 : "))
+r_time = int(input("time: "))
 
 size = (224, 224)
 
