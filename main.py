@@ -8,17 +8,12 @@ model = tensorflow.keras.models.load_model('keras_model.h5')
 
 cap = cv2.VideoCapture(0)
 global s_time
-s_time = 0
+s_time = 1
 global p_time
-p_time = 0
+p_time = 1
 global o_time
-o_time = 0
-global s_start
-s_start = 0
-global p_start
-p_start = 0
-global o_start
-o_start = 0
+o_time = 1
+
 global s_time_m
 s_time_m = 0
 global p_time_m
@@ -56,29 +51,29 @@ while cap.isOpened():
     
     if (idx == 0):
         time.sleep(1)
-        s_time = s_time + 1
+        s_time += 1
     elif (idx == 1):
         time.sleep(1)
-        o_time = o_time + 1  
+        o_time += 1  
     elif (idx == 2):
         time.sleep(1)
-        p_time = p_time + 1
+        p_time += 1
      
     
     if ((s_time % 60) == 0):
-        s_time_m = s_time_m + 1
+        s_time_m += 1
         
     
     if ((p_time % 60) == 0):
-        p_time_m = p_time_m + 1
+        p_time_m += 1
         
         
     if ((o_time % 60) == 0):
-        o_time_m = o_time_m + 1
+        o_time_m += 1
         
         
     if ((p_time_m % w_time) == 0):
-        print("딴짓한 시간이 " + p_time_m + " 입니다. 집중하세요.")
+        print("딴짓한 시간이 " + p_time_m + "분 입니다. 집중하세요.")
         
         
     if (s_time_m == r_time):
