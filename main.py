@@ -21,7 +21,7 @@ p_time_m = 0
 global o_time_m
 o_time_m = 0
 global w_time
-w_time = 10
+w_time = 3
 
 global r_time
 r_time = int(input("time: "))
@@ -48,6 +48,7 @@ while cap.isOpened():
     prediction = model.predict(img_input)
     idx = np.argmax(prediction)
 
+    cv2.putText(img, text=classes[idx], org=(10, 30), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=0.8, color=(255, 255, 255), thickness=2)
     
     if (idx == 0):
         time.sleep(1)
@@ -72,25 +73,25 @@ while cap.isOpened():
         o_time_m += 1
         
         
-    if ((p_time_m % w_time) == 0):
-        print("딴짓한 시간이 " + p_time_m + "분 입니다. 집중하세요.")
+    if ((p_time % w_time) == 0):
+        print("딴짓한 시간이 ", p_time_m, "분 입니다. 집중하세요.")
         
         
     if (s_time_m == r_time):
-        print("공부한 시간은 : " + s_time + "입니다.")
-        print("자리비운 시간은 : " + o_time + "입니다.")
-        print("딴짓한 시간은 : " + p_time + "입니다.")
+        print("공부한 시간은 : ", s_time, "입니다.")
+        print("자리비운 시간은 : ", o_time, "입니다.")
+        print("딴짓한 시간은 : ", p_time, "입니다.")
         sum = s_time + p_time + o_time
-        print("금일 학습에 소모된 총 시간은 : " + sum + "입니다.")
+        print("금일 학습에 소모된 총 시간은 : ", sum, "입니다.")
         break
     
     cv2.imshow('result', img)
     if cv2.waitKey(1) == ord('q'):
-        print("공부한 시간은 : " + s_time + "입니다.")
-        print("자리비운 시간은 : " + o_time + "입니다.")
-        print("딴짓한 시간은 : " + p_time + "입니다.")
+        print("공부한 시간은 : ", s_time, "입니다.")
+        print("자리비운 시간은 : ", o_time, "입니다.")
+        print("딴짓한 시간은 : ", p_time, "입니다.")
         sum = s_time + p_time + o_time
-        print("금일 학습에 소모된 총 시간은 : " + sum + "입니다.")
+        print("금일 학습에 소모된 총 시간은 : ", sum, "입니다.")
         break
     
     
