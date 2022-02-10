@@ -51,14 +51,6 @@ while cap.isOpened():
     prediction = model.predict(img_input)
     idx = np.argmax(prediction)
 
-    cv2.putText(img, text=classes[idx], org=(10, 30), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=0.8, color=(255, 255, 255), thickness=2)
-   
-    # if (idx == 0):
-    #     time(s_time)
-    # elif (idx == 1):
-    #     time(o_time)
-    # elif (idx == 2):
-    #     time(p_time)
     
     if (idx == 0):
         time.sleep(1)
@@ -84,19 +76,19 @@ while cap.isOpened():
         
         
     if (p_time_m == r_time):
-        print(s_time)
-        print(o_time)
-        print(p_time)
+        print("공부한 시간은 : " + s_time + "입니다.")
+        print("자리비운 시간은 : " + o_time + "입니다.")
+        print("딴짓한 시간은 : " + p_time + "입니다.")
         sum = s_time + p_time + o_time
-        print(sum)
+        print("금일 학습에 소모된 총 시간은 : " + sum + "입니다.")
         break
     
     cv2.imshow('result', img)
     if cv2.waitKey(1) == ord('q'):
-        print(s_time)
-        print(o_time)
-        print(p_time)
+        print("공부한 시간은 : " + s_time + "입니다.")
+        print("자리비운 시간은 : " + o_time + "입니다.")
+        print("딴짓한 시간은 : " + p_time + "입니다.")
         sum = s_time + p_time + o_time
-        print(sum)
+        print("금일 학습에 소모된 총 시간은 : " + sum + "입니다.")
         break
     # 여기에 변경된 코딩 정보 작성 ex) 1초 딜레이로 설정해둠
