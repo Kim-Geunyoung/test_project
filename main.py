@@ -25,6 +25,8 @@ global p_time_m
 p_time_m = 0
 global o_time_m
 o_time_m = 0
+global w_time
+w_time = 10
 
 global r_time
 r_time = int(input("time: "))
@@ -75,7 +77,11 @@ while cap.isOpened():
         o_time_m = o_time_m + 1
         
         
-    if (p_time_m == r_time):
+    if ((p_time_m % w_time) == 0):
+        print("딴짓한 시간이 " + p_time_m + " 입니다. 집중하세요.")
+        
+        
+    if (s_time_m == r_time):
         print("공부한 시간은 : " + s_time + "입니다.")
         print("자리비운 시간은 : " + o_time + "입니다.")
         print("딴짓한 시간은 : " + p_time + "입니다.")
@@ -91,4 +97,7 @@ while cap.isOpened():
         sum = s_time + p_time + o_time
         print("금일 학습에 소모된 총 시간은 : " + sum + "입니다.")
         break
+    
+    
     # 여기에 변경된 코딩 정보 작성 ex) 1초 딜레이로 설정해둠
+    # Warning message 추가
