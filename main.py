@@ -1,37 +1,29 @@
+from threading import Timer
 import tensorflow.keras
 import numpy as np
 import cv2
 import time
 import math
-<<<<<<< HEAD
- 
-=======
+import sys
 
->>>>>>> 38a98c2f380ee72642bd20e6cd4e59a7dff72acd
 model = tensorflow.keras.models.load_model('keras_model.h5')
 
 cap = cv2.VideoCapture(0)
 global s_time
-s_time = 0
+s_time = 1
 global p_time
-p_time = 0
+p_time = 1
 global o_time
-o_time = 0
-global s_start
-s_start = 0
-global p_start
-p_start = 0
-global o_start
-o_start = 0
+o_time = 1
 global s_time_m
 s_time_m = 0
 global p_time_m
 p_time_m = 0
 global o_time_m
 o_time_m = 0
-
 global r_time
-r_time = int(input("time: "))
+
+r_time = int(input("timer: "))
 
 size = (224, 224)
 
@@ -64,30 +56,30 @@ while cap.isOpened():
     # elif (idx == 2):
     #     time(p_time)
     
+    
     if (idx == 0):
+        s_time += 1
         time.sleep(1)
-        s_time = s_time + 1
     elif (idx == 1):
-        time.sleep(1)
-        o_time = o_time + 1  
+         o_time += 1
+         time.sleep(1)
     elif (idx == 2):
+        p_time += 1
         time.sleep(1)
-        p_time = p_time + 1
+     
      
     
     if ((s_time % 60) == 0):
-        s_time_m = s_time_m + 1
-        
-    
-    if ((p_time % 60) == 0):
-        p_time_m = p_time_m + 1
-        
+        s_time_m += 1
         
     if ((o_time % 60) == 0):
-        o_time_m = o_time_m + 1
+        o_time_m += 1
+        
+    if ((p_time % 60) == 0):
+        p_time_m += 1
         
         
-    if (p_time_m == r_time):
+    if (s_time_m == r_time):
         print(s_time)
         print(o_time)
         print(p_time)
